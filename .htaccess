@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+#Note: .htaccess code vary depending on hosting server. In some hosting server (e.g.: Godaddy) need to use an extra ? in the last line of above code. The following line will be replaced with last line in applicable case:
+
+# Replace last .htaccess line with this line
+#RewriteRule ^(.*)$ index.php?/$1 [L,QSA] 

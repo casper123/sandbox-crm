@@ -1,0 +1,183 @@
+<?php
+
+class Teamsmodel extends CI_Model {
+
+    private $tablename = "`teams`";
+
+    function __construct()
+    {
+        // Call the Model constructor
+        parent::__construct();
+    }
+
+    function get_record($id = ""){
+        $where = "";
+        
+        if($id > 0){
+            $where = " where id = $id";
+        }
+
+        $query = $this->db->query("SELECT * FROM  " . $this->tablename." ".$where);
+        return $query->result();
+    }
+
+    function set_record(){
+        $data   = array();
+        $images = $this->get_upload_files_response();
+        $data   = $this->getPostedParams();
+
+        $data["ntn_front"]           = (isset($images["ntn_front"]) && $images["ntn_front"] !== false)?  $images["ntn_front"] : "";
+        $data["ntn_back"]           = (isset($images["ntn_back"]) && $images["ntn_back"] !== false) ?  $images["ntn_back"] : "";
+
+        $data["owner_cnic_front"]           = (isset($images["owner_cnic_front"]) && $images["owner_cnic_front"] !== false)?  $images["owner_cnic_front"] : "";
+        $data["owner_cnic_back"]           = (isset($images["owner_cnic_back"]) && $images["owner_cnic_back"] !== false) ?  $images["owner_cnic_back"] : "";
+        
+        $data["form_page_1"]           = (isset($images["form_page_1"]) && $images["form_page_1"] !== false) ?  $images["form_page_1"] : "";
+
+        $data["form_page_2"]           = (isset($images["form_page_2"]) && $images["form_page_2"] !== false) ?  $images["form_page_2"] : "";
+
+        $data["create_date"]         = date("Y-m-d H:i:s", strtotime("now"));
+        $data["create_date"]         = date("Y-m-d H:i:s", strtotime("now"));
+        $data["update_date"]         = date("Y-m-d H:i:s", strtotime("now"));
+
+        $this->db->insert($this->tablename, $data);
+        return $this->db->insert_id();
+    }
+
+    function update_record($id){
+        $data = array();
+        $images = $this->get_upload_files_response();
+        $data = $this->getPostedParams();
+
+        $data["update_date"]         = date("Y-m-d H:i:s", strtotime("now"));
+        $data["ntn_front"]           = (isset($images["ntn_front"]) && $images["ntn_front"] !== false) ?  $images["ntn_front"] : $data["ntn_front"];
+        $data["ntn_back"]           = (isset($images["ntn_back"]) && $images["ntn_back"] !== false) ?  $images["ntn_back"] : $data["ntn_back"];
+
+        $data["owner_cnic_front"] = (isset($images["owner_cnic_front"]) && $images["owner_cnic_front"] !== false)?  $images["owner_cnic_front"] : $data["owner_cnic_front"];
+        $data["owner_cnic_back"]  = (isset($images["owner_cnic_back"]) && $images["owner_cnic_back"] !== false) ?  $images["owner_cnic_back"] : $data["owner_cnic_back"];
+        
+        $data["form_page_1"] = (isset($images["form_page_1"]) && $images["form_page_1"] !== false) ?  $images["form_page_1"] : $data["form_page_1"];
+
+        $data["form_page_2"] = (isset($images["form_page_2"]) && $images["form_page_2"] !== false) ?  $images["form_page_2"] : $data["form_page_2"];
+
+        $this->db->where('id', $id);
+        return $this->db->update($this->tablename, $data);
+    }
+
+    function delete_record($id){
+        return $this->db->delete($this->tablename, array('id' => $id));
+    }
+
+    function getPostedParams(){
+        $data["team_name"]           = $this->input->post('team_name');
+        $data["bussiness"]           = $this->input->post('bussiness');
+        $data["team_owner"]          = $this->input->post("team_owner");
+        $data["owner_cnic"]          = $this->input->post("owner_cnic");
+        $data["owner_email"]         = $this->input->post("owner_email");
+        $data["owner_contact"]       = $this->input->post("owner_contact");
+        $data["skype_id"]            = $this->input->post("skype_id");
+        $data["membership_type_id"]  = $this->input->post("membership_type_id");
+        $data["security_deposite"]   = $this->input->post("security_deposite");
+        $data["is_locker_avail"]     = $this->input->post("is_locker_avail");
+        $data["memebership_start_date"]  = date("Y-m-d",strtotime($this->input->post("memebership_start_date")));
+        $data["membership_amount"]   = $this->input->post("membership_amount");
+        $data["ntn_front"]           = $this->input->post("ntn_front");
+        $data["ntn_back"]            = $this->input->post("ntn_back");
+        $data["owner_cnic_front"]           = $this->input->post("owner_cnic_front");
+        $data["owner_cnic_back"]            = $this->input->post("owner_cnic_back");
+        $data["form_page_1"]           = $this->input->post("form_page_1");
+        $data["form_page_2"]            = $this->input->post("form_page_2");
+        $data["parking_avail"]       = $this->input->post("parking_avail");
+        $data["is_active"]           = ($this->input->post("is_active") > 0) ? $this->input->post("is_active") : 1;
+        return $data;
+    }
+
+    function get_upload_files_response(){
+        $image_path = array(); 
+        if(count_($_FILES) > 0 ){
+            foreach ($_FILES as $key => $value) {
+               $image_path[$key] =  $this->uploadImage($key);
+            }
+        }
+        return $image_path;
+    }
+
+    function checkLocalhost(){
+        $whitelist = array('127.0.0.1', "::1");
+        if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
+    function uploadImage($file){
+        if(count_($_FILES) > 0 && $_FILES[$file]["name"] != ""){
+            
+            if($this->checkLocalhost())
+                $target_dir = TEAMS_IMAGES_UPLOAD;
+            else{
+                $directory = __DIR__;
+				$target_dir = substr($directory, 0, strpos($directory, "sandbox"))."/sandbox/assets/teams";
+            }
+
+            $target_file = $target_dir .'/'.time(). "-". basename($_FILES[$file]["name"]);
+            $file_name = time(). "-". basename($_FILES[$file]["name"]);
+            $uploadOk = 1;
+            
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            // Check file size
+            if ($_FILES[$file]["size"] > 500000) {
+                return false;
+                $uploadOk = 0;
+            }
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+                $uploadOk = 0;
+            }
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                return false;
+            // if everything is ok, try to upload file
+            } else {
+               if (move_uploaded_file($_FILES[$file]["tmp_name"], $target_file)) {
+                    return $file_name;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+
+    function get_teams_records(){
+        $query = $this->db->query("SELECT 
+                                      tm.*,
+                                      membership_type.`name` as membership_type,
+                                      membership_type.`price` membership_price
+                                    FROM
+                                      `teams` tm
+                                      LEFT JOIN `membership_type` 
+                                      ON tm.`membership_type_id` = membership_type.`id`
+                                      ORDER BY tm.`id` DESC");
+        return $query->result();
+    
+    }
+
+    function update_status($id){
+        $query = $this->db->query("SELECT * FROM  " . $this->tablename." WHERE id =".intval($id));
+        $result = $query->result();
+        if(isset($result[0])){
+            if($result[0]->is_active == 1)
+                $status = 0;
+            else
+                $status = 1;
+        }
+        $data["is_active"] = $status;
+        $this->db->where('id', $id);
+        return $this->db->update($this->tablename, $data);
+    }
+}
+
+?>
