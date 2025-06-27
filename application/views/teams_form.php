@@ -160,7 +160,7 @@
                                                     <label>Owner CNIC Front</label>
                                                     <input type="file" name="owner_cnic_front" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->owner_cnic_front) && $record->owner_cnic_front != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->owner_cnic_front; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->owner_cnic_front; ?>" width="100" height="100">
                                                     <input type="hidden" name="owner_cnic_front" class="form-control-file" id="owner_cnic_front" value="<?php echo $record->owner_cnic_front; ?>">
                                                     <?php }  ?>
                                                 </div>
@@ -168,7 +168,7 @@
                                                     <label>Owner CNIC Back</label>
                                                     <input type="file" name="owner_cnic_back" class="form-control-file" id="projectinput8">
                                                     <?php if(isset($record->owner_cnic_back) && $record->owner_cnic_back != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->owner_cnic_back; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->owner_cnic_back; ?>" width="100" height="100">
                                                     <input type="hidden" name="owner_cnic_back" class="form-control-file" id="owner_cnic_back" value="<?php echo $record->owner_cnic_back; ?>">
                                                     <?php }  ?>
 
@@ -179,7 +179,7 @@
                                                     <label>Agreement</label>
                                                     <input type="file" name="form_page_1" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->form_page_1) && $record->form_page_1 != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->form_page_1; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->form_page_1; ?>" width="100" height="100">
                                                     <input type="hidden" name="form_page_1" class="form-control-file" id="form_page_1" value="<?php echo $record->form_page_1; ?>">
                                                     <?php }  ?>
                                                 </div>
@@ -187,7 +187,7 @@
                                                     <label>Picture</label>
                                                     <input type="file" name="form_page_2" class="form-control-file" id="projectinput8">
                                                     <?php if(isset($record->form_page_2) && $record->form_page_2 != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->form_page_2; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->form_page_2; ?>" width="100" height="100">
                                                     <input type="hidden" name="form_page_2" class="form-control-file" id="form_page_2" value="<?php echo $record->form_page_2; ?>">
                                                     <?php }  ?>
 
@@ -199,7 +199,7 @@
                                                     <label>NTN Front</label>
                                                     <input type="file" name="ntn_front" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->ntn_front) && $record->ntn_front != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->ntn_front; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->ntn_front; ?>" width="100" height="100">
                                                     <input type="hidden" name="ntn_front" class="form-control-file" id="ntn_back" value="<?php echo $record->ntn_front; ?>">
                                                     <?php }  ?>
                                                 </div>
@@ -207,7 +207,7 @@
                                                     <label>NTN Back</label>
                                                     <input type="file" name="ntn_back" class="form-control-file" id="projectinput8">
                                                     <?php if(isset($record->ntn_back) && $record->ntn_back != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->ntn_back; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->ntn_back; ?>" width="100" height="100">
                                                     <input type="hidden" name="ntn_back" class="form-control-file" id="ntn_back" value="<?php echo $record->ntn_back; ?>">
                                                     <?php }  ?>
 
@@ -218,7 +218,7 @@
                                                     <label>Team Logo</label>
                                                     <input type="file" name="team_logo" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->team_logo) && $record->team_logo != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->team_logo; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->team_logo; ?>" width="100" height="100">
                                                     <input type="hidden" name="team_logo" class="form-control-file" id="ntn_back" value="<?php echo $record->team_logo; ?>">
                                                     <?php }  ?>
                                                 </div>

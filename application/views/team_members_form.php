@@ -94,7 +94,7 @@
                                                     <label>Cnic Front</label>
                                                     <input type="file" name="cnic_front" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->cnic_front) && $record->cnic_front != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->cnic_front; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->cnic_front; ?>" width="100" height="100">
                                                     <input type="hidden" name="cnic_front" class="form-control-file" id="cnic_front" value="<?php echo $record->cnic_front; ?>">
                                                     <?php }  ?>
                                                 </div>
@@ -102,7 +102,7 @@
                                                     <label>CNIC Back</label>
                                                     <input type="file" name="cnic_back" class="form-control-file" id="projectinput8">
                                                     <?php if(isset($record->cnic_back) && $record->cnic_back != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->cnic_back; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->cnic_back; ?>" width="100" height="100">
                                                     <input type="hidden" name="cnic_back" class="form-control-file" id="cnic_back" value="<?php echo $record->cnic_back; ?>">
                                                     <?php }  ?>
 
@@ -114,7 +114,7 @@
                                                     <label>Member Photo</label>
                                                     <input type="file" name="member_image" class="form-control-file" id="projectinput8">
                                                      <?php if(isset($record->member_image) && $record->member_image != ""){ ?>
-                                                    <img src="<?php echo TEAMS_IMAGES_PATH.$record->member_image; ?>" width="100" height="100">
+                                                    <img src="<?php echo base_url()."uploads/".$record->member_image; ?>" width="100" height="100">
                                                     <input type="hidden" name="member_image" class="form-control-file" id="member_image" value="<?php echo $record->member_image; ?>">
                                                     <?php }  ?>
                                                 </div>

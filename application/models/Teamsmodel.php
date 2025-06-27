@@ -185,9 +185,12 @@ class Teamsmodel extends CI_Model {
 
             $imageName = $fileType."-".str_replace(" ", "-", $teamName)."-".$id.".".$imageFileType;
             //$target_file = substr($directory, 0, strpos($directory, "sandbox"))."sandbox-system/assets/teams/$imageName";
-            $target_file = substr($directory, 0, strpos($directory, "sandbox"))."sandbox/assets/teams/$imageName";
+            $target_file = "/var/www/sandbox-crm/uploads/$imageName";
             
-            $uploadOk = 1;
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "pdf" ) {
+                return false;
+            }
             
             if (move_uploaded_file($file["tmp_name"], $target_file)) {
                 $this->uploadToDropBox($target_file);
@@ -301,9 +304,8 @@ class Teamsmodel extends CI_Model {
 		list(, $data)      = explode(',', $data);
 		$data = base64_decode($data);
 
-        $directory = __DIR__;
         $imageName = $imageType."-".str_replace(" ", "-", $name)."-".$id.".png";
-        $target_dir = substr($directory, 0, strpos($directory, "sandbox"))."sandbox/assets/teams/$imageName";
+        $target_dir = "/var/www/sandbox-crm/uploads/$imageName";
 
         file_put_contents($target_dir, $data);
         //$this->uploadToDropBox($target_dir);

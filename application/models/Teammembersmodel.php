@@ -123,8 +123,7 @@ class Teammembersmodel extends CI_Model {
             if($this->checkLocalhost())
                 $target_dir = TEAMS_IMAGES_UPLOAD;
             else{
-                $directory = __DIR__;
-                $target_dir = substr($directory, 0, strpos($directory, "sandbox"))."/sandbox/assets/teams";
+                $target_dir = "/var/www/sandbox-crm/uploads";
             }
 
             $target_file = $target_dir .'/'.time(). "-". basename($_FILES[$file]["name"]);
