@@ -56,14 +56,14 @@ class Home extends CI_Controller
 			<br/>
 			Muhammad Aamir
 			<br/>
-			Operations Coordinator";
+			Key Account Manager";
 
             $config = Array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.zoho.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'info@sandbox.com.pk',
-                'smtp_pass' => 'bnex2w%J',
+                'smtp_user' => $this->config->item("smtp_user"),
+                'smtp_pass' => $this->config->item("smtp_password"),
                 'mailtype'  => 'html', 
                 'charset' => 'utf-8',
                 'wordwrap' => TRUE
@@ -72,7 +72,7 @@ class Home extends CI_Controller
 
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
-            $this->email->from('info@sandbox.com.pk', 'SandBox Team');
+            $this->email->from($this->config->item("smtp_user"), 'SandBox Team');
             $list = array($this->input->post("owner_email"));
             $this->email->to($list);
             $this->email->subject($subject);

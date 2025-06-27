@@ -519,3 +519,5 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 //$config["space_available"] = "NO";
+$config["smtp_user"] = "abdul.wahab@sandbox.com.pk";
+$config["smtp_password"] = "1zKu6rqFSFBX";

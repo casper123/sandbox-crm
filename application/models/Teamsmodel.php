@@ -387,8 +387,8 @@ class Teamsmodel extends CI_Model {
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.zoho.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'abdul.wahab@sandbox.com.pk',
-			'smtp_pass' => 'EightClub550@',
+			'smtp_user' => $this->config->item("smtp_user"),
+            'smtp_pass' => $this->config->item("smtp_password"),
 			'mailtype'  => 'html', 
 			'charset' => 'utf-8',
 			'wordwrap' => TRUE
@@ -396,7 +396,7 @@ class Teamsmodel extends CI_Model {
 		);
 		$this->load->library('email', $config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('abdul.wahab@sandbox.com.pk', 'Abdul Wahab Kotwal');
+		$this->email->from($this->config->item("smtp_user"), 'Abdul Wahab Kotwal');
 		$list = array($to_email);
 		$this->email->to($list);
 		$this->email->subject($subject);

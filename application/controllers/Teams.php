@@ -61,8 +61,8 @@ class Teams extends CI_Controller {
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.zoho.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'info@sandbox.com.pk',
-			'smtp_pass' => 'bnex2w%J',
+			'smtp_user' => $this->config->item("smtp_user"),
+            'smtp_pass' => $this->config->item("smtp_password"),
 			'mailtype'  => 'html', 
 			'charset' => 'utf-8',
 			'wordwrap' => TRUE
@@ -70,7 +70,7 @@ class Teams extends CI_Controller {
 		);
 		$this->load->library('email', $config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('info@sandbox.com.pk', 'Muhammad Aamir');
+		$this->email->from($this->config->item("smtp_user"), 'Abdul Wahab Kotwal');
 		$list = array($email);
 		$this->email->to($list);
 		$this->email->subject($subject);
@@ -209,7 +209,7 @@ class Teams extends CI_Controller {
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.zoho.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'abdul.wahab@sandbox.com.pk',
+			'smtp_user' => $this->config->item("smtp_user"),
 			'smtp_pass' => 'EightClub550@',
 			'mailtype'  => 'html', 
 			'charset' => 'utf-8',
@@ -218,7 +218,7 @@ class Teams extends CI_Controller {
 		);
 		$this->load->library('email', $config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('abdul.wahab@sandbox.com.pk', 'Abdul Wahab Kotwal');
+		$this->email->from($this->config->item("smtp_user"), 'Abdul Wahab Kotwal');
 		$list = explode(",", $to_email);
 		$this->email->to($list);
 		$this->email->subject($subject);
