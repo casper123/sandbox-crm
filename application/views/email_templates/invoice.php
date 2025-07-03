@@ -583,7 +583,7 @@
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">
                         Sand Box
-                        <br>A26, PECHS Block 6.
+                        <br>71A SMCHS Block-A,
                         <br>Karachi Pakistan
                       </p>
                     </td>

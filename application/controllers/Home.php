@@ -48,7 +48,7 @@ class Home extends CI_Controller
 			<br/><br/>
 			Welcome to SandBox Community! We are thrilled to have you and we hope we can support you to the best we can.
 			<Br/><br/>
-			You will receive your membership agreement in next 2 days for your esignature. Once signed, please come and collect your welcome kit from Saad at the Reception. Lastly, please send us a copy of your CNIC if you haven't uploaded it already.
+			You will receive your membership agreement in next 2 days for your esignature. Lastly, please send us a copy of your CNIC if you haven't uploaded it already.
 			<Br/><br/>
 			Again, welcome, let me know if you have any questions.
 			<br/><br/>
@@ -56,7 +56,7 @@ class Home extends CI_Controller
 			<br/>
 			Muhammad Aamir
 			<br/>
-			Key Account Manager";
+			Community Manager";
 
             $config = Array(
                 'protocol' => 'smtp',

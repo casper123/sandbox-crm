@@ -66,7 +66,7 @@
                                         <td>
                                             <h2>Sand Box</h2>
                                             <ul class="px-0 list-unstyled">
-                                            <li class="text-bold-800" style="line-height:1rem;">A26, PECHS Block 6, Karachi, Pakistan<br/>https://sandbox.com.pk</li>
+                                            <li class="text-bold-800" style="line-height:1rem;">71A SMCHS Block-A, Karachi, Pakistan<br/>https://sandbox.com.pk</li>
                                             </ul>
                                         </td>
                                         <td><img class="img-responsive" src="https://sandbox.com.pk/images/sandbox.png" /></td>

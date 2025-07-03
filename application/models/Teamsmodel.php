@@ -373,8 +373,6 @@ class Teamsmodel extends CI_Model {
 		<br/><br/>
 		Sand Box also offers biometric based payroll and human resource management system, tax filing and company registration services at discounted price. If you'd like to avail these services, please talk to us so we can assist you for further processing.
 		<br/><br/>
-		We've also listed our code of conduct on our website here for your convenience <a href='https://sandbox.com.pk/code.php'>https://sandbox.com.pk/code.php</a>
-		<br/><br/>
 		Should you need any assistance or have any questions or comments about your membership or benefits, please feel free to contact us directly, or call us at 0304-0445341.
 		<br/><br/>
 		We look forward to seeing you at Sand Box.
