@@ -533,15 +533,18 @@
                           <br/><br/>
                           You can use the following bank account details for IBFT / Online Transfer <b>Within Pakistan</b>
                           <br/><br/>
+                          🇵🇰 Local Accounts (Pakistan)<br/>
+                          Account Title: SandBox<br/>
                           Bank: Bank Alfalah<br/>
-                          Title: SandBox<br/>
-                          Account number: 55125001640901<br/>
-                          <br/>
-                          Bank: Standard Chartered<br/>
-                          Title: Abdul Wahab Kotwal<br/>
-                          Account number: 01958310601<br/>
+                          Account Number: 55125001640901<br/>
+                          IBAN / Raast ID: PK42ALFH5512005001640901<br/>
                           <br/><br/>
-                          You can use the following bank account details for IBFT / Online Transfer <b>Outside Pakistan</b>
+                          Account Title: Abdul Wahab Kotwal<br/>
+                          Bank: Standard Chartered<br/>
+                          Account Number: 01958310601<br/>
+                          IBAN / Raast ID: PK24SCBL0000001958310601<br/>
+                          <br/><br/>
+                          🌍 International Transfers (IBFT / Online Transfer from outside Pakistan)
                           <br/><br/>
                           Account holder: Abdul Wahab Kotwal<br/>
                           Currency: EURO<br/>
